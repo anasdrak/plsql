@@ -1,0 +1,64 @@
+DECLARE
+  message varchar2(100):= 'Hello, World!'; 
+BEGIN 
+  dbms_output.put_line(message); 
+END;
+/
+DECLARE
+	v_net NUMBER := 123.45; -- καθαρή τιμή
+	v_rate NUMBER := 0.24; -- ΦΠΑ 24%
+	v_tax NUMBER;
+	v_gross NUMBER;
+	v_pow NUMBER;
+	v_mod NUMBER;
+BEGIN
+	v_tax := v_net * v_rate; -- πολλαπλασιασμός
+	v_gross := v_net + v_tax; -- άθροιση
+	v_pow := 2 ** 3; -- ύψωση σε δύναμη
+	v_mod := MOD(17,5); -- υπόλοιπο διαίρεσης
+DBMS_OUTPUT.PUT_LINE('tax='||ROUND(v_tax,2)||' gross='||ROUND(v_gross,2));
+DBMS_OUTPUT.PUT_LINE('2**3='||v_pow||' mod(17,5)='||v_mod);
+END;
+/ 
+DECLARE
+	v_amt NUMBER := 50;
+	v_ok BOOLEAN;
+BEGIN
+v_ok := (v_amt BETWEEN 10 AND 100) AND NOT (v_amt = 0);
+IF v_ok THEN DBMS_OUTPUT.PUT_LINE('OK'); 
+ELSE DBMS_OUTPUT.PUT_LINE('NO'); 
+END IF;
+END;
+/
+DECLARE
+	v_first VARCHAR2(50) := ' Alice ';
+	v_last CHAR(10) := 'Cooper ';
+	v_full VARCHAR2(100);
+BEGIN
+v_full := TRIM(v_first) || ' ' || RTRIM(v_last);
+DBMS_OUTPUT.PUT_LINE('Full='||v_full);
+END;
+/
+DECLARE
+	v_then DATE := SYSDATE - 20;
+	v_days NUMBER;
+BEGIN
+v_days := SYSDATE - v_then; -- διαφορά σε ημέρες
+IF v_days <= 30 THEN DBMS_OUTPUT.PUT_LINE('εντός 30 ημερών'); END IF;
+END;
+/
+DECLARE
+	v_ts TIMESTAMP := SYSTIMESTAMP;
+BEGIN
+DBMS_OUTPUT.PUT_LINE(TO_CHAR(v_ts,'YYYY-MM-DD HH24:MI:SS.FF3'));
+END;
+/
+DECLARE
+	v_val NUMBER := NULL;
+	v_ok BOOLEAN;
+BEGIN
+v_ok := (v_val IS NULL) OR (v_val = 0);
+IF v_ok THEN DBMS_OUTPUT.PUT_LINE('NULL ή μηδέν'); 
+END IF;
+END;
+/
