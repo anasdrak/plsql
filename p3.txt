@@ -1,0 +1,10 @@
+DECLARE
+	v_amt NUMBER := 50;
+	v_ok BOOLEAN;
+BEGIN
+v_ok := (v_amt BETWEEN 10 AND 100) AND NOT (v_amt = 0);
+IF v_ok THEN DBMS_OUTPUT.PUT_LINE('OK'); 
+ELSE DBMS_OUTPUT.PUT_LINE('NO'); 
+END IF;
+END;
+/

@@ -1,0 +1,8 @@
+DECLARE
+TYPE t_rec IS RECORD(id NUMBER, name VARCHAR2(50), active BOOLEAN);
+v t_rec := t_rec(1,'Alice',TRUE);
+BEGIN
+IF v.active AND v.id > 0 THEN DBMS_OUTPUT.PUT_LINE(v.name); 
+END IF;
+END;
+/

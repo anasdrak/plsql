@@ -1,0 +1,9 @@
+DECLARE
+	v_val NUMBER := NULL;
+	v_ok BOOLEAN;
+BEGIN
+v_ok := (v_val IS NULL) OR (v_val = 0);
+IF v_ok THEN DBMS_OUTPUT.PUT_LINE('NULL ή μηδέν'); 
+END IF;
+END;
+/

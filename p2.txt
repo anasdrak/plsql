@@ -1,0 +1,16 @@
+DECLARE
+	v_net NUMBER := 123.45; -- καθαρή τιμή
+	v_rate NUMBER := 0.24; -- ΦΠΑ 24%
+	v_tax NUMBER;
+	v_gross NUMBER;
+	v_pow NUMBER;
+	v_mod NUMBER;
+BEGIN
+	v_tax := v_net * v_rate; -- πολλαπλασιασμός
+	v_gross := v_net + v_tax; -- άθροιση
+	v_pow := 2 ** 3; -- ύψωση σε δύναμη
+	v_mod := MOD(17,5); -- υπόλοιπο διαίρεσης
+DBMS_OUTPUT.PUT_LINE('tax='||ROUND(v_tax,2)||' gross='||ROUND(v_gross,2));
+DBMS_OUTPUT.PUT_LINE('2**3='||v_pow||' mod(17,5)='||v_mod);
+END;
+/ 
