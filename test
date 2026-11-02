@@ -1,0 +1,7 @@
+DECLARE 
+v_text VARCHAR(30) := 'Oracle';
+BEGIN 
+  DBMS_OUTPUT.PUT_LINE(UPPER(v_text));
+  DBMS_OUTPUT.PUT_LINE(LENGTH(v_text));
+END;
+/
